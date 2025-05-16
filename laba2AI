@@ -1,0 +1,4 @@
+neighbor(X, Y, [X, Y | _]).
+neighbor(X, Y, [Y, X | _]).
+neighbor(X, Y, [_ | T]) :-
+    neighbor(X, Y, T).
