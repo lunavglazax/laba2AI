@@ -3,6 +3,18 @@ neighbor(X, Y, [Y, X | _]).
 neighbor(X, Y, [_ | T]) :-
     neighbor(X, Y, T).
 
-last_element(X, [X]).
-last_element(X, [_ | T]) :-
-    last_element(X, T).
+sum_list([], 0).
+sum_list([H | T], Sum) :-
+    sum_list(T, Rest),
+    Sum is H + Rest.
+
+length_list([], 0).
+length_list([_ | T], Length) :-
+    length_list(T, Rest),
+    Length is Rest + 1.
+
+average(List, Avg) :-
+    sum_list(List, Sum),
+    length_list(List, Length),
+    Length > 0,
+    Avg is Sum / Length.
