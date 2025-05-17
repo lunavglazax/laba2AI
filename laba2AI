@@ -2,3 +2,7 @@ neighbor(X, Y, [X, Y | _]).
 neighbor(X, Y, [Y, X | _]).
 neighbor(X, Y, [_ | T]) :-
     neighbor(X, Y, T).
+
+last_element(X, [X]).
+last_element(X, [_ | T]) :-
+    last_element(X, T).
